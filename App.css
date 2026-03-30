@@ -1177,6 +1177,24 @@ h2.dashboard-section__heading[id] {
   white-space: normal;
 }
 
+/* Wide centered tooltips spill into the neighboring chart; pin first/last bars to the inside edge */
+.attention-chart__col:first-child:not(:only-child) .attention-chart__bar-stack--tip::after {
+  left: 0;
+  right: auto;
+  transform: none;
+}
+
+.attention-chart__col:last-child:not(:only-child) .attention-chart__bar-stack--tip::after {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.attention-chart__col:only-child .attention-chart__bar-stack--tip::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .attention-chart__bar-stack--tip:hover::after,
 .attention-chart__bar-stack--tip:focus-visible::after {
   opacity: 1;
